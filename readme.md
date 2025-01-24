@@ -29,29 +29,6 @@ Este projeto consiste em um sistema de sorteio web com uma roleta animada e inte
 - JavaScript
 - WebSocket API
 
-## 📁 Estrutura do Projeto
-
-site/
-├── 1v3/
-│ ├── index.html
-│ └── sorteio.txt
-├── 2v2/
-│ ├── index.html
-│ └── sorteio.txt
-├── 4players/
-│ ├── index.html
-│ └── sorteio.txt
-├── bowser/
-│ ├── index.html
-│ ├── script.js
-│ └── sorteio.txt
-├── duelo/
-│ ├── index.html
-│ └── sorteio.txt
-└── controle/
-├── index.html
-└── rodar.html
-
 ## 🚀 Como Executar
 
 1. Instale as dependências:
