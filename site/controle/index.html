@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Minigame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1b4b 0%, #2d1b4e 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .btn {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .btn {
+                font-size: 20px;
+                border-radius: 15px;
+            }
+
+            .btn .icon {
+                font-size: 32px;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Selecione o Minigame</h1>
+    <div class="container">
+        <button class="btn" onclick="enviarModo('1v3')">
+            <span class="icon">👥</span>
+            1 vs 3
+        </button>
+        <button class="btn" onclick="enviarModo('duelo')">
+            <span class="icon">⚔️</span>
+            Duelo
+        </button>
+        <button class="btn" onclick="enviarModo('2v2')">
+            <span class="icon">🤝</span>
+            2 vs 2
+        </button>
+        <button class="btn" onclick="enviarModo('4players')">
+            <span class="icon">🎯</span>
+            4 Players
+        </button>
+        <button class="btn" onclick="enviarModo('bowser')">
+            <span class="icon"><img src="../bowser/favicon.ico" alt="ícone do bowser" style="width: 58px; height: 58px;"/></span>
+            Bowser
+        </button>
+    </div>
+
+    <script>
+        const ws = new WebSocket('ws://192.168.3.10:8765');
+        
+        ws.onopen = function() {
+            console.log('Conectado ao servidor WebSocket');
+        };
+        
+        ws.onerror = function(error) {
+            console.error('Erro na conexão WebSocket:', error);
+            alert('Erro na conexão. Tente novamente.');
+        };
+
+        ws.onclose = function() {
+            console.log('Conexão WebSocket fechada');
+            setTimeout(function() {
+                window.location.reload();
+            }, 5000);
+        };
+
+        function enviarModo(modo) {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(modo);
+                // Desabilita todos os botões após o clique
+                const botoes = document.querySelectorAll('.btn');
+                botoes.forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.opacity = '0.5';
+                });
+            } else {
+                alert('Conexão não estabelecida. Tente novamente.');
+                window.location.reload();
+            }
+        window.location.href = './rodar.html';
+        }
+    </script>
+</body>
+</html> 

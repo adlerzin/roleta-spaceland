@@ -1,0 +1,10 @@
+Dê 30 Moedas para o Bowser, Se você tiver menos de 30 moedas, perde todas as suas moedas.
+Dê Metade de Suas Moedas para o Bowser, Se você tiver um número ímpar de moedas, Bowser recebe a metade maior.
+Dê 10 Moedas para o Último Colocado, Se você tiver menos de 10 moedas, perde todas as suas moedas.
+Revolução do Bowser, Divide igualmente as moedas de todos os jogadores. Moedas que não podem ser divididas igualmente são descartadas.
+Embaralhamento do Bowser, Todos os jogadores trocam de espaço com o jogador à sua direita.
+Sua Próxima Estrela Está pela Metade do Preço, Guarde esta carta como lembrete de que sua próxima estrela está com 50% de desconto.
+Dê 20 Moedas para o Bowser, Se você tiver menos de 20 moedas, perde todas as suas moedas.
+Todos Dão 10 Moedas para o Bowser, Todos os jogadores entregam 10 moedas para Bowser.
+Perca uma Estrela, Perde uma estrela. Se você não tiver uma estrela, nada acontece.
+Receba 100 Estrelas, Bowser apenas brincou. Ele foge, mas pelo menos nada de ruim aconteceu.
